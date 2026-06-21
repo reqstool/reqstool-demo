@@ -13,6 +13,10 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        reqstool-source: [pypi, main]
     steps:
       - name: Check out source repository
         uses: actions/checkout@v6
@@ -23,10 +27,19 @@ jobs:
           distribution: "temurin"
       - name: Build project
         run: mvn clean verify
-      - name: Run reqstool status command
+      - name: Install reqstool (${{ matrix.reqstool-source }})
         run: |
-          pip install reqstool
-          reqstool status local -p "$GITHUB_WORKSPACE"/docs/reqstool
+          if [ "${{ matrix.reqstool-source }}" = "main" ]; then
+            pip install "reqstool @ git+https://github.com/reqstool/reqstool-client.git@main"
+          else
+            pip install reqstool
+          fi
+      - name: Run reqstool status command
+        run: reqstool status local -p "$GITHUB_WORKSPACE"/docs/reqstool
+      - name: Run reqstool validate --strict
+        # not yet available in the latest PyPI release
+        if: matrix.reqstool-source == 'main'
+        run: reqstool validate --strict local -p "$GITHUB_WORKSPACE"/docs/reqstool
       - name: Set up Node.js
         uses: actions/setup-node@v6
         with:
