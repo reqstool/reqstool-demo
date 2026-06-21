@@ -9,7 +9,7 @@
 urn: reqstool-demo
 
 # Revision string for new requirements and SVCs
-revision: "0.0.1"
+revision: "0.1.0"
 
 # System-level reqstool directory (contains the SSOT requirements and SVCs)
 system:
