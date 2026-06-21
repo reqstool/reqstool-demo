@@ -27,3 +27,11 @@ jobs:
         run: |
           pip install reqstool
           reqstool status local -p "$GITHUB_WORKSPACE"/docs/reqstool
+      - name: Set up Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version: "24"
+      - name: Validate OpenSpec specs
+        run: |
+          npm install -g @fission-ai/openspec
+          openspec validate --specs --strict

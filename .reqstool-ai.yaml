@@ -25,7 +25,9 @@ system:
 # Add as many modules as your project has. The module name (key) is used in
 # commands like `/reqstool:status core` and `/reqstool:add-req core`.
 modules:
-  # Domain-specific prefixes: this demo's IDs are managed manually
+  # Domain-specific prefixes: this demo's requirement IDs are managed manually, so
+  # req_prefix is empty (no auto-prefix for new requirements). SVC IDs already use a
+  # literal "SVC_" + number convention (SVC_010, SVC_020, ...), so svc_prefix is set.
   # (REQ_PASS, REQ_MANUAL_FAIL, REQ_NOT_IMPLEMENTED, ...; SVC_010, SVC_020, ...)
   demo:
     path: docs/reqstool
