@@ -27,18 +27,19 @@ jobs:
           distribution: "temurin"
       - name: Build project
         run: mvn clean verify
+      - name: Install reqstool
+        uses: reqstool/.github/.github/actions/install-reqstool@11a00fc386214969143ed27b1a9085eca019dc92 # main 2026-06-21
+        with:
+          reqstool-source: ${{ matrix.reqstool-source }}
       - name: Validate reqstool spec completeness
         # not yet available in the latest PyPI release
         if: matrix.reqstool-source == 'main'
-        uses: reqstool/.github/.github/actions/validate-reqstool@cd3b5e8a6f8629391dd06ef9982ca81a1a0bd79f # main 2026-06-21
-        with:
-          reqstool-source: ${{ matrix.reqstool-source }}
+        uses: reqstool/.github/.github/actions/validate-reqstool@11a00fc386214969143ed27b1a9085eca019dc92 # main 2026-06-21
       - name: Run reqstool status
-        uses: reqstool/.github/.github/actions/reqstool-status@cd3b5e8a6f8629391dd06ef9982ca81a1a0bd79f # main 2026-06-21
+        uses: reqstool/.github/.github/actions/reqstool-status@11a00fc386214969143ed27b1a9085eca019dc92 # main 2026-06-21
         with:
-          reqstool-source: ${{ matrix.reqstool-source }}
           # this repo intentionally has incomplete requirements (it showcases every status outcome)
           fail-if-incomplete: "false"
 
   validate-openspec:
-    uses: reqstool/.github/.github/workflows/common-validate-openspec.yml@cd3b5e8a6f8629391dd06ef9982ca81a1a0bd79f # main 2026-06-21
+    uses: reqstool/.github/.github/workflows/common-validate-openspec.yml@11a00fc386214969143ed27b1a9085eca019dc92 # main 2026-06-21
