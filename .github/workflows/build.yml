@@ -27,6 +27,10 @@ jobs:
           distribution: "temurin"
       - name: Build project
         run: mvn clean verify
+      - name: Set up Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
       - name: Install reqstool (${{ matrix.reqstool-source }})
         run: |
           if [ "${{ matrix.reqstool-source }}" = "main" ]; then
