@@ -27,28 +27,18 @@ jobs:
           distribution: "temurin"
       - name: Build project
         run: mvn clean verify
-      - name: Set up Python
-        uses: actions/setup-python@v6
-        with:
-          python-version: "3.13"
-      - name: Install reqstool (${{ matrix.reqstool-source }})
-        run: |
-          if [ "${{ matrix.reqstool-source }}" = "main" ]; then
-            pip install "reqstool @ git+https://github.com/reqstool/reqstool-client.git@main"
-          else
-            pip install reqstool
-          fi
-      - name: Run reqstool status command
-        run: reqstool status local -p "$GITHUB_WORKSPACE"/docs/reqstool
-      - name: Run reqstool validate --strict
+      - name: Validate reqstool spec completeness
         # not yet available in the latest PyPI release
         if: matrix.reqstool-source == 'main'
-        run: reqstool validate --strict local -p "$GITHUB_WORKSPACE"/docs/reqstool
-      - name: Set up Node.js
-        uses: actions/setup-node@v6
+        uses: reqstool/.github/.github/actions/validate-reqstool@cd3b5e8a6f8629391dd06ef9982ca81a1a0bd79f # main 2026-06-21
         with:
-          node-version: "24"
-      - name: Validate OpenSpec specs
-        run: |
-          npm install -g @fission-ai/openspec
-          openspec validate --specs --strict
+          reqstool-source: ${{ matrix.reqstool-source }}
+      - name: Run reqstool status
+        uses: reqstool/.github/.github/actions/reqstool-status@cd3b5e8a6f8629391dd06ef9982ca81a1a0bd79f # main 2026-06-21
+        with:
+          reqstool-source: ${{ matrix.reqstool-source }}
+          # this repo intentionally has incomplete requirements (it showcases every status outcome)
+          fail-if-incomplete: "false"
+
+  validate-openspec:
+    uses: reqstool/.github/.github/workflows/common-validate-openspec.yml@cd3b5e8a6f8629391dd06ef9982ca81a1a0bd79f # main 2026-06-21
