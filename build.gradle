@@ -21,7 +21,7 @@ dependencies {
     annotationProcessor 'io.github.reqstool:reqstool-java-annotations:1.0.0'
     
     // Test dependencies
-    testImplementation platform('org.junit:junit-bom:6.1.2')
+    testImplementation platform('org.junit:junit-bom:6.1.3')
     testImplementation 'org.junit.jupiter:junit-jupiter-api'
     testAnnotationProcessor 'io.github.reqstool:reqstool-java-annotations:1.0.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine'
