@@ -31,18 +31,18 @@ jobs:
       - name: Build project
         run: mvn clean verify
       - name: Install reqstool
-        uses: reqstool/.github/.github/actions/install-reqstool@5bdf4e5c4af98274c44c8fbaa5b54d605a6cf38a # main 2026-06-22
+        uses: reqstool/.github/.github/actions/install-reqstool@ef815eae0bca7160cdc714126cac73f76d638b39 # 1.0.0
         with:
           reqstool-source: ${{ matrix.reqstool-source }}
       - name: Validate reqstool spec completeness
         # not yet available in the latest PyPI release
         if: matrix.reqstool-source == 'main'
-        uses: reqstool/.github/.github/actions/validate-reqstool@5bdf4e5c4af98274c44c8fbaa5b54d605a6cf38a # main 2026-06-22
+        uses: reqstool/.github/.github/actions/validate-reqstool@ef815eae0bca7160cdc714126cac73f76d638b39 # 1.0.0
       - name: Run reqstool status
-        uses: reqstool/.github/.github/actions/reqstool-status@5bdf4e5c4af98274c44c8fbaa5b54d605a6cf38a # main 2026-06-22
+        uses: reqstool/.github/.github/actions/reqstool-status@ef815eae0bca7160cdc714126cac73f76d638b39 # 1.0.0
         with:
           # this repo intentionally has incomplete requirements (it showcases every status outcome)
           fail-if-incomplete: "false"
 
   validate-openspec:
-    uses: reqstool/.github/.github/workflows/common-validate-openspec.yml@5bdf4e5c4af98274c44c8fbaa5b54d605a6cf38a # main 2026-06-22
+    uses: reqstool/.github/.github/workflows/common-validate-openspec.yml@ef815eae0bca7160cdc714126cac73f76d638b39 # 1.0.0
