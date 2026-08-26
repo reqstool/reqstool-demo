@@ -23,7 +23,7 @@
 		<dependency>
 			<groupId>io.github.reqstool</groupId>
 			<artifactId>reqstool-java-annotations</artifactId>
-			<version>1.0.0</version>
+			<version>1.0.1</version>
 		</dependency>
 	</dependencies>
 
@@ -61,7 +61,7 @@
 			<plugin>
 				<groupId>io.github.reqstool</groupId>
 				<artifactId>reqstool-maven-plugin</artifactId>
-				<version>1.0.4</version>
+				<version>1.1.0</version>
 				<executions>
 					<execution>
 						<goals>
@@ -89,7 +89,7 @@
 						<path>
 							<groupId>io.github.reqstool</groupId>
 							<artifactId>reqstool-java-annotations</artifactId>
-							<version>1.0.0</version>
+							<version>1.0.1</version>
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
