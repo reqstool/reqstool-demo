@@ -38,13 +38,3 @@ requirementsTool {
     datasetPath = file('docs/reqstool')
     testResults = ['build/test-results/**/*.xml']
 }
-
-// Wire the assembleRequirements task into the build lifecycle
-// (similar to Maven's execution configuration)
-tasks.named('build') {
-    finalizedBy tasks.named('assembleRequirements')
-}
-
-tasks.named('assembleRequirements') {
-    dependsOn tasks.named('test')
-}
