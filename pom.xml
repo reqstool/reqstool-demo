@@ -23,7 +23,7 @@
 		<dependency>
 			<groupId>io.github.reqstool</groupId>
 			<artifactId>reqstool-java-annotations</artifactId>
-			<version>1.0.1</version>
+			<version>1.0.2</version>
 		</dependency>
 	</dependencies>
 
@@ -89,7 +89,7 @@
 						<path>
 							<groupId>io.github.reqstool</groupId>
 							<artifactId>reqstool-java-annotations</artifactId>
-							<version>1.0.1</version>
+							<version>1.0.2</version>
 						</path>
 					</annotationProcessorPaths>
 				</configuration>
