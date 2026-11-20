@@ -14,4 +14,5 @@ skipped — the **skipped-test** status case.
 The system SHALL implement REQ_SKIPPED_TEST.
 
 #### Scenario: SVC_050
-The system SHALL pass SVC_050.
+- **WHEN** SVC_050 is run
+- **THEN** it passes

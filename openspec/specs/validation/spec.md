@@ -14,4 +14,5 @@ requirement whose implementation has a bug, causing its automated test to fail â
 The system SHALL implement REQ_FAILING_TEST.
 
 #### Scenario: SVC_040
-The system SHALL pass SVC_040.
+- **WHEN** SVC_040 is run
+- **THEN** it passes

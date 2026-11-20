@@ -14,7 +14,9 @@ status case.
 The system SHALL implement REQ_PASS.
 
 #### Scenario: SVC_010
-The system SHALL pass SVC_010.
+- **WHEN** SVC_010 is run
+- **THEN** it passes
 
 #### Scenario: SVC_021
-The system SHALL pass SVC_021.
+- **WHEN** SVC_021 is run
+- **THEN** it passes

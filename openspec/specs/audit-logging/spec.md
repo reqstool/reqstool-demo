@@ -14,4 +14,5 @@ case.
 The system SHALL implement REQ_MISSING_TEST.
 
 #### Scenario: SVC_060
-The system SHALL pass SVC_060.
+- **WHEN** SVC_060 is run
+- **THEN** it passes
