@@ -14,7 +14,9 @@ status case.
 The system SHALL implement REQ_MANUAL_FAIL.
 
 #### Scenario: SVC_020
-The system SHALL pass SVC_020.
+- **WHEN** SVC_020 is run
+- **THEN** it passes
 
 #### Scenario: SVC_022
-The system SHALL pass SVC_022.
+- **WHEN** SVC_022 is run
+- **THEN** it passes

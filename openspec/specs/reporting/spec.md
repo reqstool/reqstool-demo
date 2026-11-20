@@ -13,4 +13,5 @@ requirement with an SVC but no implementation — the **not-implemented** status
 The system SHALL implement REQ_NOT_IMPLEMENTED.
 
 #### Scenario: SVC_030
-The system SHALL pass SVC_030.
+- **WHEN** SVC_030 is run
+- **THEN** it passes
